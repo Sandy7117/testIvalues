@@ -78,7 +78,9 @@
     },
     "strollers_KVkyR9": {
       "type": "strollers",
-      "settings": {}
+      "settings": {
+        "collection": "frontpage"
+      }
     }
   },
   "order": [
