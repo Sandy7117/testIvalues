@@ -1,0 +1,111 @@
+<section class="car-seat-section">
+  <div class="container">
+    <div class="text-content">
+      <img src="{{ 'cybex-logo.png' | asset_url }}" alt="Cybex Logo" class="brand-logo">
+      <h2>From Birth to Teen</h2>
+      <p>Featuring multiple ADAC award-winning car seats, the T-Line delivers supreme protection and luxury comfort.</p>
+      <a href="#" class="start-journey">Start Your Car Seat Journey</a>
+    </div>
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for product in collections['car-seats'].products %}
+          <div class="swiper-slide">
+            <div class="car-seat-card {% if forloop.first %}active{% endif %}">
+              <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.metafields.custom.age_range }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- Progress Bar -->
+      <div class="swiper-progress">
+        <div class="swiper-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper.js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    on: {
+      slideChange: function () {
+        var progress = (this.realIndex + 1) / this.slides.length * 100;
+        document.querySelector('.swiper-progress-bar').style.width = progress + '%';
+      }
+    }
+  });
+</script>
+
+<style>
+  .car-seat-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
+  .text-content {
+    max-width: 40%;
+  }
+  .swiper-container {
+    width: 55%;
+    overflow: hidden;
+  }
+  .swiper-slide {
+    text-align: center;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .swiper-button-prev, .swiper-button-next {
+    color: #000;
+  }
+  .swiper-progress {
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    position: relative;
+    margin-top: 10px;
+  }
+  .swiper-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #000;
+    transition: width 0.3s;
+  }
+</style>
+
+
+
+{% schema %}
+    {
+    "name": "Strollers",
+    "settings": [
+    ],
+    "presets": [
+      {
+        "name": "Strollers"
+      }
+    ]
+  }
+   {% endschema %}
+   {% stylesheet %}
+   {% endstylesheet %}
+   {% javascript %}
+   {% endjavascript %}
