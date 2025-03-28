@@ -153,6 +153,7 @@
         "content_LTY7aC": {
           "type": "content",
           "settings": {
+            "content_image": "shopify://shop_images/image_2.png",
             "content_title": "Nurturing Little Minds and Bodies",
             "button_text": "View All",
             "button_link": "#"
