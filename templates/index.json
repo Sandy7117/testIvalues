@@ -81,11 +81,18 @@
       "settings": {
         "collection": "frontpage"
       }
+    },
+    "custom_banner_6xVTNm": {
+      "type": "custom-banner",
+      "settings": {
+        "collection": ""
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "strollers_KVkyR9"
+    "strollers_KVkyR9",
+    "custom_banner_6xVTNm"
   ]
 }
