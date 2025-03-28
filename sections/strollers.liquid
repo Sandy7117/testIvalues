@@ -8,7 +8,7 @@
     </div>
 
     <div class="car-seat-section-swiperDiv">
-    <div class="swiper mySwiper stroller">
+    <div class="swiper mySwiper-{{ section.id }}  stroller">
       <div class="swiper-wrapper">
 
         {%- if section.settings.collection.products.size > 0 -%}
@@ -54,7 +54,7 @@
 <script>
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    var swiper = new Swiper('.mySwiper', {
+    var swiper = new Swiper('.mySwiper-{{ section.id }} ', {
     slidesPerView: 3,
     spaceBetween: 20,
     loop: false,
