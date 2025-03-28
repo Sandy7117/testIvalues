@@ -9,6 +9,50 @@
  */
 {
   "sections": {
+    "custom_banner_6xVTNm": {
+      "type": "custom-banner",
+      "blocks": {
+        "banner_fJeip9": {
+          "type": "banner",
+          "settings": {
+            "banner_image": "shopify://shop_images/Screenshot_2025-03-28_at_9.56.53_AM.png",
+            "title": "Doing the right thing",
+            "description": "Reduce and reuse. We’re pushing to net zero CO2 by 2035, and rolling out circular services.",
+            "button_link": "",
+            "button_text": "Discover more",
+            "text_bg_color": "#a8e6a3"
+          }
+        },
+        "banner_DD9NH4": {
+          "type": "banner",
+          "settings": {
+            "banner_image": "shopify://shop_images/Screenshot_2025-03-28_at_9.56.53_AM.png",
+            "title": "Doing the right thing",
+            "description": "Reduce and reuse. We’re pushing to net zero CO2 by 2035, and rolling out circular services.",
+            "button_link": "",
+            "button_text": "Discover more",
+            "text_bg_color": "#a8e6a3"
+          }
+        },
+        "banner_WXeeqg": {
+          "type": "banner",
+          "settings": {
+            "banner_image": "shopify://shop_images/Screenshot_2025-03-28_at_9.56.53_AM.png",
+            "title": "Doing the right thing",
+            "description": "Reduce and reuse. We’re pushing to net zero CO2 by 2035, and rolling out circular services.",
+            "button_link": "",
+            "button_text": "Discover more",
+            "text_bg_color": "#a8e6a3"
+          }
+        }
+      },
+      "block_order": [
+        "banner_fJeip9",
+        "banner_DD9NH4",
+        "banner_WXeeqg"
+      ],
+      "settings": {}
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -35,6 +79,7 @@
         "heading",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -81,18 +126,12 @@
       "settings": {
         "collection": "frontpage"
       }
-    },
-    "custom_banner_6xVTNm": {
-      "type": "custom-banner",
-      "settings": {
-        "collection": ""
-      }
     }
   },
   "order": [
+    "custom_banner_6xVTNm",
     "image_banner",
     "featured_collection",
-    "strollers_KVkyR9",
-    "custom_banner_6xVTNm"
+    "strollers_KVkyR9"
   ]
 }
