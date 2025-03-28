@@ -1,6 +1,4 @@
-
-    
-    <section class="custom-swiper-container">
+        <section class="swiper-container">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           <div class="swiper-slide">
@@ -14,8 +12,13 @@
     
               <!-- Right Text -->
               <div class="split-text" style="background-color: {{ block.settings.text_bg_color }}">
-                <h2>{{ block.settings.title }}</h2>
-                <p>{{ block.settings.description }}</p>
+                <div class="fixed-text">
+                  <span class="hover-text" data-text="Durability">Durability</span>
+                  <span class="hover-text" data-text="Innovation">Innovation</span>
+                  <span class="hover-text" data-text="Responsibility">Responsibility</span>
+                </div>
+                <h2 class="dynamic-title">{{ block.settings.title }}</h2>
+                <p class="dynamic-description">{{ block.settings.description }}</p>
                 {% if block.settings.button_text != blank and block.settings.button_link != blank %}
                   <a href="{{ block.settings.button_link }}" class="btn">{{ block.settings.button_text }}</a>
                 {% endif %}
@@ -31,7 +34,7 @@
     </section>
     
     <style>
-      .custom-swiper-container {
+      .swiper-container {
         width: 100%;
         overflow: hidden;
         position: relative;
@@ -61,6 +64,27 @@
         padding: 60px;
         color: #000;
         transition: background 0.5s ease-in-out;
+        position: relative;
+      }
+    
+      .fixed-text {
+        display: flex;
+        gap: 20px;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+    
+      .hover-text {
+        cursor: pointer;
+        transition: color 0.3s ease-in-out;
+      }
+    
+      .hover-text:hover,
+      .hover-text.active {
+        color: black;
+        font-weight: bold;
+        text-decoration: underline;
       }
     
       .swiper-button-prev, .swiper-button-next {
@@ -80,7 +104,7 @@
     
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        new Swiper('.custom-swiper-container', {
+        new Swiper('.swiper-container', {
           loop: true,
           navigation: {
             nextEl: '.swiper-button-next',
@@ -92,9 +116,18 @@
           },
           speed: 600,
         });
+    
+        document.querySelectorAll('.hover-text').forEach(item => {
+          item.addEventListener('click', function() {
+            document.querySelectorAll('.hover-text').forEach(el => el.classList.remove('active'));
+            this.classList.add('active');
+    
+            const newText = this.getAttribute('data-text');
+            document.querySelector('.dynamic-title').textContent = newText;
+          });
+        });
       });
     </script>
-
 
 
 {% schema %}
