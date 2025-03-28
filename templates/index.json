@@ -137,6 +137,9 @@
         "slide_XhT7Yc": {
           "type": "slide",
           "settings": {
+            "firstImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
+            "secondImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
+            "thirdImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
             "overlay_text": "Carousel section"
           }
         },
@@ -144,7 +147,7 @@
           "type": "category",
           "settings": {
             "category_title": "CHILDREN",
-            "category_bg": "#DD6F53"
+            "category_bg": "#dd6f53"
           }
         },
         "content_LTY7aC": {
