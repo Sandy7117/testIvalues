@@ -7,8 +7,24 @@
             {% if block.type == 'slide' %}
               <div class="swiper-slide">
                 <div class="carousel-slide">
-                  {% if block.settings.image %}
-                    <img src="{{ block.settings.image | img_url: 'master' }}" alt="Slide">
+                  {% if block.settings.firstImage %}
+                    <img src="{{ block.settings.firstImage | img_url: 'master' }}" alt="Slide">
+                  {% endif %}
+                  <div class="overlay-text">{{ block.settings.overlay_text }}</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="carousel-slide">
+                  {% if block.settings.secondImage %}
+                    <img src="{{ block.settings.secondImage | img_url: 'master' }}" alt="Slide">
+                  {% endif %}
+                  <div class="overlay-text">{{ block.settings.overlay_text }}</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="carousel-slide">
+                  {% if block.settings.thirdImage %}
+                    <img src="{{ block.settings.thirdImage | img_url: 'master' }}" alt="Slide">
                   {% endif %}
                   <div class="overlay-text">{{ block.settings.overlay_text }}</div>
                 </div>
@@ -160,7 +176,17 @@
           "settings": [
             {
               "type": "image_picker",
-              "id": "image",
+              "id": "firstImage",
+              "label": "Slide Image"
+            },
+            {
+              "type": "image_picker",
+              "id": "secondImage",
+              "label": "Slide Image"
+            },
+            {
+              "type": "image_picker",
+              "id": "thirdImage",
               "label": "Slide Image"
             },
             {
