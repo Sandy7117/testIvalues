@@ -130,12 +130,45 @@
       "settings": {
         "collection": "frontpage"
       }
+    },
+    "carousel_section_TFbGCG": {
+      "type": "carousel-section",
+      "blocks": {
+        "slide_XhT7Yc": {
+          "type": "slide",
+          "settings": {
+            "overlay_text": "Carousel section"
+          }
+        },
+        "category_cjmwMh": {
+          "type": "category",
+          "settings": {
+            "category_title": "CHILDREN",
+            "category_bg": "#DD6F53"
+          }
+        },
+        "content_LTY7aC": {
+          "type": "content",
+          "settings": {
+            "content_title": "Nurturing Little Minds and Bodies",
+            "button_text": "View All",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "slide_XhT7Yc",
+        "category_cjmwMh",
+        "content_LTY7aC"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "custom_banner_6xVTNm",
     "image_banner",
     "featured_collection",
-    "strollers_KVkyR9"
+    "strollers_KVkyR9",
+    "carousel_section_TFbGCG"
   ]
 }
