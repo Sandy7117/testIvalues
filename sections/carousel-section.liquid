@@ -10,7 +10,6 @@
                   {% if block.settings.firstImage %}
                     <img src="{{ block.settings.firstImage | img_url: 'master' }}" alt="Slide">
                   {% endif %}
-                  <div class="overlay-text">{{ block.settings.overlay_text }}</div>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -18,7 +17,6 @@
                   {% if block.settings.secondImage %}
                     <img src="{{ block.settings.secondImage | img_url: 'master' }}" alt="Slide">
                   {% endif %}
-                  <div class="overlay-text">{{ block.settings.overlay_text }}</div>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -26,7 +24,6 @@
                   {% if block.settings.thirdImage %}
                     <img src="{{ block.settings.thirdImage | img_url: 'master' }}" alt="Slide">
                   {% endif %}
-                  <div class="overlay-text">{{ block.settings.overlay_text }}</div>
                 </div>
               </div>
             {% endif %}
