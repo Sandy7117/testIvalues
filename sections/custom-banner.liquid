@@ -1,3 +1,110 @@
+<style>
+    .swiper-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+  
+    .split-container {
+      display: flex;
+      width: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+  
+    .split-image {
+      flex: 1;
+      min-width: 50%;
+      overflow: hidden;
+    }
+    .fixed-text-bottom-img {
+      width: 40px;
+      height: auto;
+    }
+  
+    .split-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  .dynamic-description {
+      display: flex;
+      text-align: justify;
+      margin: 0;
+  }
+    .split-text {
+      max-width: 50%;
+      flex: 1;
+      padding: 60px;
+      color: #000;
+      transition: background 0.5s ease-in-out;
+      position: relative;
+    }
+
+    .fixed-text-bottom {
+      position: absolute;
+      bottom: 40px;
+      width: 85%;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .fixed-text {
+      display: flex;
+      gap: 20px;
+      font-size: 16px;
+      flex-wrap: wrap;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  
+    .hover-text {
+      cursor: pointer;
+      opacity: .5;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .dynamic-title {
+      display: flex;
+      font-weight: 600;
+      font-size: 40px;
+      margin: 5px 0;
+    }
+
+    .media>*:not(.zoom):not(.deferred-media__poster-button), .media model-viewer {
+      position: relative;
+    }
+
+  
+    .hover-text:hover,
+    .hover-text.active {
+      opacity: 1;
+      color: black;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  
+    .banner-swiper-button-prev, .banner-swiper-button-next {
+      color: black;
+    }
+  
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 40px;
+      width: 110px;
+      color: #000;
+      background: #fff;
+      border: 1px solid #000;
+    }
+
+    .swiper-container-{{ section.id }} {
+      overflow: hidden
+    }
+  </style>
+  
 <section class="swiper-container-{{ section.id }}">
     <div class="swiper-wrapper">
         {% for block in section.blocks %}
@@ -38,113 +145,7 @@
     <div class="banner-swiper-button-next"></div>
 </section>
     
-    <style>
-      .swiper-container {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-      }
-    
-      .split-container {
-        display: flex;
-        width: 100%;
-        border-radius: 15px;
-        overflow: hidden;
-      }
-    
-      .split-image {
-        flex: 1;
-        min-width: 50%;
-        overflow: hidden;
-      }
-      .fixed-text-bottom-img {
-        width: 40px;
-        height: auto;
-      }
-    
-      .split-image img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-    .dynamic-description {
-        display: flex;
-        text-align: justify;
-        margin: 0;
-    }
-      .split-text {
-        max-width: 50%;
-        flex: 1;
-        padding: 60px;
-        color: #000;
-        transition: background 0.5s ease-in-out;
-        position: relative;
-      }
-
-      .fixed-text-bottom {
-        position: absolute;
-        bottom: 40px;
-        width: 85%;
-        display: flex;
-        flex-direction: column;
-      }
-    
-      .fixed-text {
-        display: flex;
-        gap: 20px;
-        font-size: 16px;
-        flex-wrap: wrap;
-        text-transform: uppercase;
-        font-weight: 600;
-      }
-    
-      .hover-text {
-        cursor: pointer;
-        opacity: .5;
-        transition: color 0.3s ease-in-out;
-      }
-
-      .dynamic-title {
-        display: flex;
-        font-weight: 600;
-        font-size: 40px;
-        margin: 5px 0;
-      }
-
-      .media>*:not(.zoom):not(.deferred-media__poster-button), .media model-viewer {
-        position: relative;
-      }
-
-    
-      .hover-text:hover,
-      .hover-text.active {
-        opacity: 1;
-        color: black;
-        font-weight: bold;
-        text-decoration: underline;
-      }
-    
-      .banner-swiper-button-prev, .banner-swiper-button-next {
-        color: black;
-      }
-    
-      .btn {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 40px;
-        width: 110px;
-        color: #000;
-        background: #fff;
-        border: 1px solid #000;
-      }
-
-      .swiper-container-{{ section.id }} {
-        overflow: hidden
-      }
-    </style>
-    
+   
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         new Swiper('.swiper-container-{{ section.id }}', {

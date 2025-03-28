@@ -1,68 +1,4 @@
-
-    
-    <section class="carousel-container">
-    <div class="carousel-container-left">
-      <div class="swiper-container-{{ section.id }} custom-swiper-container">
-        <div class="swiper-wrapper">
-          {% for block in section.blocks %}
-            {% if block.type == 'slide' %}
-              <div class="swiper-slide">
-                <div class="carousel-slide">
-                  {% if block.settings.firstImage %}
-                    <img src="{{ block.settings.firstImage | img_url: 'master' }}" alt="Slide">
-                  {% endif %}
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="carousel-slide">
-                  {% if block.settings.secondImage %}
-                    <img src="{{ block.settings.secondImage | img_url: 'master' }}" alt="Slide">
-                  {% endif %}
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="carousel-slide">
-                  {% if block.settings.thirdImage %}
-                    <img src="{{ block.settings.thirdImage | img_url: 'master' }}" alt="Slide">
-                  {% endif %}
-                </div>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-
-        <div class="carousel-container-left-inner">
-        {% for block in section.blocks %}
-            {% if block.type == 'category' %}
-                <div class="category-block" style="background: {{ block.settings.category_bg }}">
-                <span>{{ block.settings.category_title }}</span>
-                </div>
-            {% endif %}
-        {% endfor %}
-        </div>
-    </div>
-    
-      <div class="carousel-content">
-        {% for block in section.blocks %}
-          {% if block.type == 'content' %}
-            <div class="content-block">
-              {% if block.settings.content_image %}
-                <img src="{{ block.settings.content_image | img_url: 'master' }}" alt="Content">
-              {% endif %}
-              <div class="content-text">
-                <h3 class="content-text-heading">{{ block.settings.content_title }}</h3>
-                {% if block.settings.button_text and block.settings.button_link %}
-                  <a href="{{ block.settings.button_link }}" class="view-all-carousel">{{ block.settings.button_text }}</a>
-                {% endif %}
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </section>
-    
-    <style>
+<style>
       .carousel-container {
         display: flex;
         gap: 20px;
@@ -96,6 +32,7 @@
     
       .carousel-slide img {
         width: 100%;
+        height: 100%;
         border-radius: 10px;
       }
     
@@ -161,22 +98,90 @@
         display: inline-block;
         margin-top: 10px;
       }
+      .carousel-container-left .carousel-slide {
+            height: 100%;
+        }
     
       @media (max-width: 768px) {
         .carousel-container {
           flex-direction: column;
         }
     
-        .swiper-container-{{ section.id }}, .carousel-content {
+        .carousel-content {
           width: 100%;
+        }
+        .carousel-container-left {
+            width: 100%;
         }
       }
     </style>
     
+    <section class="carousel-container">
+    <div class="carousel-container-left">
+      <div class="swiper-container-{{ section.id }} custom-swiper-container">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'slide' %}
+              <div class="swiper-slide">
+                <div class="carousel-slide">
+                  {% if block.settings.firstImage %}
+                    <img src="{{ block.settings.firstImage | img_url: 'master' }}" alt="Slide">
+                  {% endif %}
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="carousel-slide">
+                  {% if block.settings.secondImage %}
+                    <img src="{{ block.settings.secondImage | img_url: 'master' }}" alt="Slide">
+                  {% endif %}
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="carousel-slide">
+                  {% if block.settings.thirdImage %}
+                    <img src="{{ block.settings.thirdImage | img_url: 'master' }}" alt="Slide">
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+        <div class="carousel-container-left-inner">
+        {% for block in section.blocks %}
+            {% if block.type == 'category' %}
+                <div class="category-block" style="background: {{ block.settings.category_bg }}">
+                <span>{{ block.settings.category_title }}</span>
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+    
+      <div class="carousel-content">
+        {% for block in section.blocks %}
+          {% if block.type == 'content' %}
+            <div class="content-block">
+              {% if block.settings.content_image %}
+                <img src="{{ block.settings.content_image | img_url: 'master' }}" alt="Content">
+              {% endif %}
+              <div class="content-text">
+                <h3 class="content-text-heading">{{ block.settings.content_title }}</h3>
+                {% if block.settings.button_text and block.settings.button_link %}
+                  <a href="{{ block.settings.button_link }}" class="view-all-carousel">{{ block.settings.button_text }}</a>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+    
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         new Swiper('.swiper-container-{{ section.id }}', {
-          loop: true
+          loop: true,
         });
       });
     </script>
