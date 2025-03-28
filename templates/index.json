@@ -134,6 +134,13 @@
     "carousel_section_TFbGCG": {
       "type": "carousel-section",
       "blocks": {
+        "category_cjmwMh": {
+          "type": "category",
+          "settings": {
+            "category_title": "CHILDREN",
+            "category_bg": "#dd6f53"
+          }
+        },
         "slide_XhT7Yc": {
           "type": "slide",
           "settings": {
@@ -141,13 +148,6 @@
             "secondImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
             "thirdImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
             "overlay_text": "Carousel section"
-          }
-        },
-        "category_cjmwMh": {
-          "type": "category",
-          "settings": {
-            "category_title": "CHILDREN",
-            "category_bg": "#dd6f53"
           }
         },
         "content_LTY7aC": {
@@ -161,9 +161,81 @@
         }
       },
       "block_order": [
-        "slide_XhT7Yc",
         "category_cjmwMh",
+        "slide_XhT7Yc",
         "content_LTY7aC"
+      ],
+      "settings": {}
+    },
+    "carousel_section_MVtBp4": {
+      "type": "carousel-section",
+      "blocks": {
+        "slide_bKhWjF": {
+          "type": "slide",
+          "settings": {
+            "firstImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
+            "secondImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
+            "thirdImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
+            "overlay_text": "Carousel section"
+          }
+        },
+        "category_bTgWFg": {
+          "type": "category",
+          "settings": {
+            "category_title": "CHILDREN",
+            "category_bg": "#dd6f53"
+          }
+        },
+        "content_DxUmtb": {
+          "type": "content",
+          "settings": {
+            "content_image": "shopify://shop_images/image_2.png",
+            "content_title": "Nurturing Little Minds and Bodies",
+            "button_text": "View All",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "slide_bKhWjF",
+        "category_bTgWFg",
+        "content_DxUmtb"
+      ],
+      "settings": {}
+    },
+    "carousel_section_QCf6Mf": {
+      "type": "carousel-section",
+      "blocks": {
+        "category_RtM38e": {
+          "type": "category",
+          "settings": {
+            "category_title": "CHILDREN",
+            "category_bg": "#dd6f53"
+          }
+        },
+        "slide_WhWmCz": {
+          "type": "slide",
+          "settings": {
+            "firstImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
+            "secondImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
+            "thirdImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
+            "overlay_text": "Carousel section"
+          }
+        },
+        "content_yxEG3g": {
+          "type": "content",
+          "settings": {
+            "content_image": "shopify://shop_images/image_2.png",
+            "content_title": "Nurturing Little Minds and Bodies",
+            "button_text": "View All",
+            "button_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "category_RtM38e",
+        "slide_WhWmCz",
+        "content_yxEG3g"
       ],
       "settings": {}
     }
@@ -173,6 +245,8 @@
     "image_banner",
     "featured_collection",
     "strollers_KVkyR9",
-    "carousel_section_TFbGCG"
+    "carousel_section_TFbGCG",
+    "carousel_section_MVtBp4",
+    "carousel_section_QCf6Mf"
   ]
 }
