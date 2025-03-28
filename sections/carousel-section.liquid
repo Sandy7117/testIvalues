@@ -1,6 +1,7 @@
 
     
     <section class="carousel-container">
+    <div class="carousel-container-left">
       <div class="swiper-container">
         <div class="swiper-wrapper">
           {% for block in section.blocks %}
@@ -31,13 +32,16 @@
         </div>
       </div>
 
-      {% for block in section.blocks %}
-        {% if block.type == 'category' %}
-            <div class="category-block" style="background: {{ block.settings.category_bg }}">
-              <span>{{ block.settings.category_title }}</span>
-            </div>
-        {% endif %}
-    {% endfor %}
+        <div class="carousel-container-left">
+        {% for block in section.blocks %}
+            {% if block.type == 'category' %}
+                <div class="category-block" style="background: {{ block.settings.category_bg }}">
+                <span>{{ block.settings.category_title }}</span>
+                </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </div>
     
       <div class="carousel-content">
         {% for block in section.blocks %}
