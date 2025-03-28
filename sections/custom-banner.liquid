@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="fixed-text-bottom">
-                    <img src="{{ block.settings.banner-logo | img_url: 'master' }}" alt="Banner Image">
+                    <img class="fixed-text-bottom-img" src="{{ block.settings.banner-logo | img_url: 'master' }}" alt="Banner Image">
                     <h2 class="dynamic-title">{{ block.settings.title }}</h2>
                     <p class="dynamic-description">{{ block.settings.description }}</p>
                     {% if block.settings.button_text != blank and block.settings.button_link != blank %}
@@ -55,6 +55,10 @@
         flex: 1;
         min-width: 50%;
         overflow: hidden;
+      }
+      .fixed-text-bottom-img {
+        width: 40px;
+        height: auto;
       }
     
       .split-image img {
@@ -102,8 +106,12 @@
       .dynamic-title {
         display: flex;
         font-weight: 600;
-        font-size: 30px;
+        font-size: 40px;
         margin: 5px 0;
+      }
+
+      .media>*:not(.zoom):not(.deferred-media__poster-button), .media model-viewer {
+        position: relative;
       }
 
     
@@ -137,12 +145,11 @@
         new Swiper('.swiper-container-{{ section.id }}', {
           loop: true,
           slidesPerView: 1,
+          spaceBetween: 20,
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
-          },
-         
-          speed: 600,
+          }
         });
     
         document.querySelectorAll('.hover-text').forEach(item => {
@@ -176,7 +183,7 @@
             {
               "type": "image_picker",
               "id": "banner-logo",
-              "label": "Left Image"
+              "label": "Right logo Image"
             },
             {
               "type": "text",

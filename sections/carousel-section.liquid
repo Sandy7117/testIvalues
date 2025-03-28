@@ -1,0 +1,229 @@
+
+    
+    <section class="carousel-container">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'slide' %}
+              <div class="swiper-slide">
+                <div class="carousel-slide">
+                  {% if block.settings.image %}
+                    <img src="{{ block.settings.image | img_url: 'master' }}" alt="Slide">
+                  {% endif %}
+                  <div class="overlay-text">{{ block.settings.overlay_text }}</div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    
+      <div class="carousel-content">
+        {% for block in section.blocks %}
+          {% if block.type == 'category' %}
+            <div class="category-block" style="background: {{ block.settings.category_bg }}">
+              <span>{{ block.settings.category_title }}</span>
+            </div>
+          {% elsif block.type == 'content' %}
+            <div class="content-block">
+              {% if block.settings.content_image %}
+                <img src="{{ block.settings.content_image | img_url: 'master' }}" alt="Content">
+              {% endif %}
+              <div class="content-text">
+                <h3>{{ block.settings.content_title }}</h3>
+                {% if block.settings.button_text and block.settings.button_link %}
+                  <a href="{{ block.settings.button_link }}" class="btn">{{ block.settings.button_text }}</a>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+    
+    <style>
+      .carousel-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        overflow: hidden;
+        padding: 20px;
+      }
+    
+      .swiper-container {
+        width: 33%;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+    
+      .swiper-slide {
+        position: relative;
+      }
+    
+      .carousel-slide img {
+        width: 100%;
+        border-radius: 10px;
+      }
+    
+      .overlay-text {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+    
+      .carousel-content {
+        display: flex;
+        gap: 20px;
+        width: 67%;
+      }
+    
+      .category-block {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 10px;
+        padding: 20px;
+      }
+    
+      .content-block {
+        flex: 2;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+    
+      .content-block img {
+        width: 100%;
+        display: block;
+      }
+    
+      .content-text {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: black;
+      }
+    
+      .btn {
+        background: #DD6F53;
+        color: white;
+        padding: 8px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 10px;
+      }
+    
+      @media (max-width: 768px) {
+        .carousel-container {
+          flex-direction: column;
+        }
+    
+        .swiper-container, .carousel-content {
+          width: 100%;
+        }
+      }
+    </style>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.swiper-container', {
+          loop: true,
+          autoplay: {
+            delay: 4000,
+            disableOnInteraction: false
+          },
+          speed: 500
+        });
+      });
+    </script>
+
+
+{% schema %}
+    {
+      "name": "Carousel Section",
+      "class": "carousel-section",
+      "settings": [],
+      "blocks": [
+        {
+          "type": "slide",
+          "name": "Slide",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Slide Image"
+            },
+            {
+              "type": "text",
+              "id": "overlay_text",
+              "label": "Overlay Text",
+              "default": "Carousel section"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "name": "Category Block",
+          "settings": [
+            {
+              "type": "text",
+              "id": "category_title",
+              "label": "Category Title",
+              "default": "CHILDREN"
+            },
+            {
+              "type": "color",
+              "id": "category_bg",
+              "label": "Background Color",
+              "default": "#DD6F53"
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "name": "Content Block",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "content_image",
+              "label": "Content Image"
+            },
+            {
+              "type": "text",
+              "id": "content_title",
+              "label": "Content Title",
+              "default": "Nurturing Little Minds and Bodies"
+            },
+            {
+              "type": "text",
+              "id": "button_text",
+              "label": "Button Text",
+              "default": "View All"
+            },
+            {
+              "type": "url",
+              "id": "button_link",
+              "label": "Button Link"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Carousel Section",
+          "category": "Image"
+        }
+      ]
+    }
+    {% endschema %}
+    
