@@ -1,147 +1,155 @@
-<section class="split-banner">
-  <div class="split-container">
-    <!-- Left Image -->
-    <div class="split-image">
-      <img src="{{ 'https://cdn.shopify.com/s/files/1/0907/0939/3771/files/Screenshot_2025-03-28_at_9.56.53_AM.png?v=1743136076' | asset_url }}" alt="Sustainability">
-    </div>
 
-    <!-- Right Text -->
-    <div class="split-text">
-      <div class="text-content active" data-text="responsibility">
-        <h2>Doing the right thing</h2>
-        <p>Reduce and reuse. We’re pushing to net zero CO2 by 2035, and rolling out circular services.</p>
-        <a href="#" class="btn">Discover more</a>
+    
+    <section class="custom-swiper-container">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="split-container">
+              <!-- Left Image -->
+              <div class="split-image">
+                {% if block.settings.banner_image != blank %}
+                  <img src="{{ block.settings.banner_image | img_url: 'master' }}" alt="Banner Image">
+                {% endif %}
+              </div>
+    
+              <!-- Right Text -->
+              <div class="split-text" style="background-color: {{ block.settings.text_bg_color }}">
+                <h2>{{ block.settings.title }}</h2>
+                <p>{{ block.settings.description }}</p>
+                {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                  <a href="{{ block.settings.button_link }}" class="btn">{{ block.settings.button_text }}</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
       </div>
-      <div class="text-content" data-text="durability">
-        <h2>Built to Last</h2>
-        <p>Our products are designed for durability, reducing waste and maximizing usability.</p>
-        <a href="#" class="btn">Learn more</a>
-      </div>
-      <div class="text-content" data-text="innovation">
-        <h2>Innovating for the Future</h2>
-        <p>We integrate cutting-edge technology to make sustainable solutions more accessible.</p>
-        <a href="#" class="btn">Explore more</a>
-      </div>
-
-      <!-- Hover Tabs -->
-      <div class="hover-tabs">
-        <span class="tab active" data-tab="responsibility">Responsibility</span>
-        <span class="tab" data-tab="durability">Durability</span>
-        <span class="tab" data-tab="innovation">Innovation</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  .split-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0;
-  }
-
-  .split-container {
-    display: flex;
-    width: 90%;
-    max-width: 1200px;
-    overflow: hidden;
-    border-radius: 15px;
-  }
-
-  .split-image {
-    flex: 1;
-    overflow: hidden;
-  }
-
-  .split-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .split-text {
-    flex: 1;
-    background: #a8e6a3;
-    padding: 60px;
-    position: relative;
-    transition: background 0.5s ease-in-out;
-  }
-
-  .text-content {
-    display: none;
-    transition: opacity 0.4s ease-in-out;
-  }
-
-  .text-content.active {
-    display: block;
-    opacity: 1;
-  }
-
-  .hover-tabs {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 15px;
-  }
-
-  .hover-tabs .tab {
-    font-weight: bold;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.3s;
-  }
-
-  .hover-tabs .tab.active {
-    opacity: 1;
-    text-decoration: underline;
-  }
-
-  .btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-</style>
-
-<script>
-  document.querySelectorAll('.hover-tabs .tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-      document.querySelector('.hover-tabs .tab.active').classList.remove('active');
-      this.classList.add('active');
-
-      let selectedText = this.dataset.tab;
-      document.querySelector('.text-content.active').classList.remove('active');
-      document.querySelector(`.text-content[data-text="${selectedText}"]`).classList.add('active');
-    });
-  });
-</script>
+    
+      <!-- Swiper Navigation -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </section>
+    
+    <style>
+      .custom-swiper-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+    
+      .split-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+    
+      .split-image {
+        flex: 1;
+        overflow: hidden;
+      }
+    
+      .split-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    
+      .split-text {
+        flex: 1;
+        padding: 60px;
+        color: #000;
+        transition: background 0.5s ease-in-out;
+      }
+    
+      .swiper-button-prev, .swiper-button-next {
+        color: black;
+      }
+    
+      .btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.custom-swiper-container', {
+          loop: true,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          speed: 600,
+        });
+      });
+    </script>
 
 
 
 {% schema %}
     {
-    "name": "Custom Banner",
-    "settings": [
+      "name": "Split Banner Slider",
+      "class": "split-banner",
+      "settings": [],
+      "blocks": [
         {
-            "type": "collection",
-            "id": "collection",
-            "label": "Collection"
+          "type": "banner",
+          "name": "Banner Slide",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "banner_image",
+              "label": "Left Image"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Title",
+              "default": "Doing the right thing"
+            },
+            {
+              "type": "textarea",
+              "id": "description",
+              "label": "Description",
+              "default": "Reduce and reuse. We’re pushing to net zero CO2 by 2035, and rolling out circular services."
+            },
+            {
+              "type": "url",
+              "id": "button_link",
+              "label": "Button Link"
+            },
+            {
+              "type": "text",
+              "id": "button_text",
+              "label": "Button Text",
+              "default": "Discover more"
+            },
+            {
+              "type": "color",
+              "id": "text_bg_color",
+              "label": "Text Background Color",
+              "default": "#a8e6a3"
+            }
+          ]
         }
-    ],
-    "presets": [
-      {
-        "name": "Custom Banner"
-      }
-    ]
-  }
-   {% endschema %}
-   {% stylesheet %}
-   {% endstylesheet %}
-   {% javascript %}
-   {% endjavascript %}
+      ],
+      "presets": [
+        {
+          "name": "Split Banner Slider",
+          "category": "Image"
+        }
+      ]
+    }
+    {% endschema %}
+    
