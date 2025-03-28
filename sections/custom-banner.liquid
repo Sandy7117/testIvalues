@@ -1,4 +1,4 @@
-        <section class="swiper-container">
+        <section class="swiper-container-{{ section.id }}">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           <div class="swiper-slide">
@@ -13,15 +13,19 @@
               <!-- Right Text -->
               <div class="split-text" style="background-color: {{ block.settings.text_bg_color }}">
                 <div class="fixed-text">
-                  <span class="hover-text" data-text="Durability">Durability</span>
+                  <span class="hover-text active" data-text="Durability">Durability</span>
                   <span class="hover-text" data-text="Innovation">Innovation</span>
                   <span class="hover-text" data-text="Responsibility">Responsibility</span>
                 </div>
-                <h2 class="dynamic-title">{{ block.settings.title }}</h2>
-                <p class="dynamic-description">{{ block.settings.description }}</p>
-                {% if block.settings.button_text != blank and block.settings.button_link != blank %}
-                  <a href="{{ block.settings.button_link }}" class="btn">{{ block.settings.button_text }}</a>
-                {% endif %}
+
+                <div class="fixed-text-bottom">
+                    <img src="{{ block.settings.banner-logo | img_url: 'master' }}" alt="Banner Image">
+                    <h2 class="dynamic-title">{{ block.settings.title }}</h2>
+                    <p class="dynamic-description">{{ block.settings.description }}</p>
+                    {% if block.settings.button_text != blank and block.settings.button_link != blank %}
+                    <a href="{{ block.settings.button_link }}" class="btn">{{ block.settings.button_text }}</a>
+                    {% endif %}
+                </div>
               </div>
             </div>
           </div>
@@ -42,7 +46,6 @@
     
       .split-container {
         display: flex;
-        align-items: center;
         width: 100%;
         border-radius: 15px;
         overflow: hidden;
@@ -50,6 +53,7 @@
     
       .split-image {
         flex: 1;
+        min-width: 50%;
         overflow: hidden;
       }
     
@@ -58,30 +62,54 @@
         height: auto;
         display: block;
       }
-    
+    .dynamic-description {
+        display: flex;
+        text-align: justify;
+        margin: 0;
+    }
       .split-text {
+        max-width: 50%;
         flex: 1;
         padding: 60px;
         color: #000;
         transition: background 0.5s ease-in-out;
         position: relative;
       }
+
+      .fixed-text-bottom {
+        position: absolute;
+        bottom: 40px;
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+      }
     
       .fixed-text {
         display: flex;
         gap: 20px;
         font-size: 16px;
+        flex-wrap: wrap;
         text-transform: uppercase;
         font-weight: 600;
       }
     
       .hover-text {
         cursor: pointer;
+        opacity: .5;
         transition: color 0.3s ease-in-out;
       }
+
+      .dynamic-title {
+        display: flex;
+        font-weight: 600;
+        font-size: 30px;
+        margin: 5px 0;
+      }
+
     
       .hover-text:hover,
       .hover-text.active {
+        opacity: 1;
         color: black;
         font-weight: bold;
         text-decoration: underline;
@@ -95,17 +123,20 @@
         display: inline-block;
         margin-top: 15px;
         padding: 10px 20px;
-        background: #000;
-        color: #fff;
         text-decoration: none;
-        border-radius: 5px;
+        border-radius: 40px;
+        width: 110px;
+        color: #000;
+        background: #fff;
+        border: 1px solid #000;
       }
     </style>
     
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        new Swiper('.swiper-container', {
+        new Swiper('.swiper-container-{{ section.id }}', {
           loop: true,
+          slidesPerView: 1,
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -140,6 +171,11 @@
             {
               "type": "image_picker",
               "id": "banner_image",
+              "label": "Left Image"
+            },
+            {
+              "type": "image_picker",
+              "id": "banner-logo",
               "label": "Left Image"
             },
             {
