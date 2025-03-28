@@ -30,14 +30,18 @@
           {% endfor %}
         </div>
       </div>
-    
-      <div class="carousel-content">
-        {% for block in section.blocks %}
-          {% if block.type == 'category' %}
+
+      {% for block in section.blocks %}
+        {% if block.type == 'category' %}
             <div class="category-block" style="background: {{ block.settings.category_bg }}">
               <span>{{ block.settings.category_title }}</span>
             </div>
-          {% elsif block.type == 'content' %}
+        {% endif %}
+    {% endfor %}
+    
+      <div class="carousel-content">
+        {% for block in section.blocks %}
+          {% if block.type == 'content' %}
             <div class="content-block">
               {% if block.settings.content_image %}
                 <img src="{{ block.settings.content_image | img_url: 'master' }}" alt="Content">
@@ -115,6 +119,8 @@
     
       .content-block img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
         display: block;
       }
     
