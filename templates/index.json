@@ -146,7 +146,7 @@
         "category_cjmwMh": {
           "type": "category",
           "settings": {
-            "category_title": "CHILDREN",
+            "category_title": "COMMUNITIES",
             "category_bg": "#dd6f53"
           }
         },
@@ -221,7 +221,7 @@
         "category_RtM38e": {
           "type": "category",
           "settings": {
-            "category_title": "CHILDREN",
+            "category_title": "PARENTS",
             "category_bg": "#dd6f53"
           }
         },
@@ -241,7 +241,7 @@
         "content_yxEG3g"
       ],
       "custom_css": [
-        ".carousel-container-left {flex-direction: row-reverse}"
+        ".carousel-container-left {flex-direction: row-reverse;}"
       ],
       "settings": {}
     }
