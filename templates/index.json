@@ -134,13 +134,6 @@
     "carousel_section_TFbGCG": {
       "type": "carousel-section",
       "blocks": {
-        "category_cjmwMh": {
-          "type": "category",
-          "settings": {
-            "category_title": "CHILDREN",
-            "category_bg": "#dd6f53"
-          }
-        },
         "slide_XhT7Yc": {
           "type": "slide",
           "settings": {
@@ -148,6 +141,13 @@
             "secondImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
             "thirdImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
             "overlay_text": "Carousel section"
+          }
+        },
+        "category_cjmwMh": {
+          "type": "category",
+          "settings": {
+            "category_title": "CHILDREN",
+            "category_bg": "#dd6f53"
           }
         },
         "content_LTY7aC": {
@@ -161,8 +161,8 @@
         }
       },
       "block_order": [
-        "category_cjmwMh",
         "slide_XhT7Yc",
+        "category_cjmwMh",
         "content_LTY7aC"
       ],
       "settings": {}
@@ -206,13 +206,6 @@
     "carousel_section_QCf6Mf": {
       "type": "carousel-section",
       "blocks": {
-        "category_RtM38e": {
-          "type": "category",
-          "settings": {
-            "category_title": "CHILDREN",
-            "category_bg": "#dd6f53"
-          }
-        },
         "slide_WhWmCz": {
           "type": "slide",
           "settings": {
@@ -220,6 +213,13 @@
             "secondImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
             "thirdImage": "shopify://shop_images/Screenshot_2025-03-28_at_12.49.10_PM.png",
             "overlay_text": "Carousel section"
+          }
+        },
+        "category_RtM38e": {
+          "type": "category",
+          "settings": {
+            "category_title": "CHILDREN",
+            "category_bg": "#dd6f53"
           }
         },
         "content_yxEG3g": {
@@ -233,8 +233,8 @@
         }
       },
       "block_order": [
-        "category_RtM38e",
         "slide_WhWmCz",
+        "category_RtM38e",
         "content_yxEG3g"
       ],
       "settings": {}
