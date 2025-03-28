@@ -51,9 +51,9 @@
                 <img src="{{ block.settings.content_image | img_url: 'master' }}" alt="Content">
               {% endif %}
               <div class="content-text">
-                <h3>{{ block.settings.content_title }}</h3>
+                <h3 class="content-text-heading">{{ block.settings.content_title }}</h3>
                 {% if block.settings.button_text and block.settings.button_link %}
-                  <a href="{{ block.settings.button_link }}" class="btn">{{ block.settings.button_text }}</a>
+                  <a href="{{ block.settings.button_link }}" class="view-all-carousel">{{ block.settings.button_text }}</a>
                 {% endif %}
               </div>
             </div>
@@ -84,6 +84,10 @@
 
       .carousel-container-left-inner {
         width: 50%;
+      }
+
+      .content-text-heading {
+        margin: 0;
       }
     
       .swiper-slide {
@@ -141,15 +145,17 @@
     
       .content-text {
         position: absolute;
-        bottom: 20px;
-        left: 20px;
+        top: 50%;
+        left: 27%;
+        -webkit-overflow-scrolling: touch;
+        transform: translate(-33%, -50%);
         color: black;
       }
     
-      .btn {
+      .view-all-carousel {
         background: #DD6F53;
         color: white;
-        padding: 8px 15px;
+        padding: 0px 20px;
         text-decoration: none;
         border-radius: 5px;
         display: inline-block;
